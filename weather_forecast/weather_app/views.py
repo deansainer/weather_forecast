@@ -1,6 +1,5 @@
 import requests
 from django.shortcuts import render
-from .forms import CityForm
 from urllib.request import urlopen
 import json
 
@@ -14,7 +13,6 @@ def index(request):
         city = location_data['city']
     resp = requests.get(url.format(city)).json()
 
-    form = CityForm()
     city_info = {
         'city': city,
         'temp': resp['main']['temp'],
@@ -25,6 +23,6 @@ def index(request):
         'icon': resp['weather'][0]['icon'],
     }
 
-    context = {'city_info': city_info, 'form': form}
+    context = {'city_info': city_info}
     return render(request, 'weather_app/index.html', context)
 

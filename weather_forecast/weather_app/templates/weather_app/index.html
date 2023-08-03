@@ -12,7 +12,6 @@
 <body>
 
 <!-- Header -->
-
 <header class="text-bg-dark">
     <div class="container">
         <div class="d-flex flex-wrap ">
@@ -32,9 +31,9 @@
                 <div class="d-flex justify-content-center mb-4">
                     <div class="form-outline me-3" style="width: 21rem">
                         <form class="form-inline" method="get">
-                            <input class="form-control" width="100%" name="city" placeholder="Warsaw">
+                            <input class="form-control" width="100%" name="city" placeholder="Warsaw" id="cityInput">
                     </div>
-                    <button class="btn btn-outline-dark" type="submit">Submit</button>
+                    <button class="btn btn-outline-dark" type="submit" id="submitBtn">Submit</button>
                     </form>
                     <form method="post">
                         {% csrf_token %}
@@ -44,7 +43,6 @@
                 </div>
                 </form>
                 <br>
-                </form>
                 <div class="card shadow-0 border">
                     <div class="card-body p-4">
 
@@ -58,9 +56,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
 </body>
+<script src="{% static 'js/script.js' %}"></script>
 </html>
