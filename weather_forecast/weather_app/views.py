@@ -7,12 +7,14 @@ import json
 def index(request):
     location_data = requests.get('http://ipinfo.io/json').json()
     url = 'https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=86104ffb6aaa5ce42e36c1c32a57ddf0'
-    city = request.GET.get('city', 'Warsaw')
-
+    default_city = 'Warsaw'
+    city = request.GET.get('city', default_city)
+    if city == '':
+        city = default_city
     if 'get_my_city' in request.POST:
         city = location_data['city']
-    resp = requests.get(url.format(city)).json()
 
+    resp = requests.get(url.format(city)).json()
     city_info = {
         'city': city,
         'temp': resp['main']['temp'],
