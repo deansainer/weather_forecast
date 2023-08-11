@@ -35,6 +35,7 @@
                     </div>
                     <button class="btn btn-outline-dark" type="submit" id="submitBtn">Submit</button>
                     </form>
+
                     <form method="post">
                         {% csrf_token %}
                         <button style="margin-left: 5px" class="btn btn-outline-dark" type="submit" name="get_my_city">
@@ -43,6 +44,7 @@
                 </div>
                 </form>
                 <br>
+                {% if city_info %}
                 <div class="card shadow-0 border">
                     <div class="card-body p-4">
 
@@ -55,10 +57,10 @@
                             <strong>{{city_info.temp_min}}°C</strong></p>
                     </div>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>
 </section>
 </body>
-<script src="{% static 'js/script.js' %}"></script>
 </html>
