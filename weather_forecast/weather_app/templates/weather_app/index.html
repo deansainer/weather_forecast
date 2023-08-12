@@ -45,9 +45,9 @@
                 </form>
                 <br>
                 {% if city_info %}
-                <div class="card shadow-0 border">
+                <div class="card shadow-0 border my_form">
                     <div class="card-body p-4">
-
+                        <img src="{{location_info.country_flag}}"/>
                         <h4 class="mb-1 sfw-normal">{{city_info.city}}</h4>
                         <img src="http://openweathermap.org/img/w/{{city_info.icon}}.png"/>
                         <p><strong>{{city_info.description}}</strong></p>
@@ -57,6 +57,7 @@
                             <strong>{{city_info.temp_min}}°C</strong></p>
                     </div>
                 </div>
+
                 {% endif %}
             </div>
         </div>
