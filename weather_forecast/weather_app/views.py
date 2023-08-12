@@ -9,17 +9,6 @@ IP = '213.134.163.62'
 
 def index(request):
     try:
-        API_KEY = 'f45f0c10232d420f8134fffa85b54df7'
-        IP = '213.134.163.62'
-        location_data = requests.get(f'https://api.ipgeolocation.io/ipgeo?apiKey={API_KEY}&ip={IP}').json()
-
-        location_info = {
-            'country_name': location_data['country_name'],
-            'city': location_data['city'],
-            'current_time': location_data['time_zone']['current_time'][11:19],
-            'country_flag': location_data['country_flag'],
-            }
-
         location_data = requests.get(f'https://api.ipgeolocation.io/ipgeo?apiKey={API_KEY}&ip={IP}').json()
         # getting city from user through input
         city = request.GET.get('city', '')
@@ -41,7 +30,7 @@ def index(request):
             'icon': resp['weather'][0]['icon'],
         }
 
-        context = {'city_info': city_info, 'location_info': location_info}
+        context = {'city_info': city_info}
         return render(request, 'weather_app/index.html', context)
     except (KeyError, TypeError):
         return render(request, 'weather_app/index.html')

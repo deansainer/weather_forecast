@@ -45,9 +45,8 @@
                 </form>
                 <br>
                 {% if city_info %}
-                <div class="card shadow-0 border my_form">
+                <div class="card shadow-0 border my_form" style="background-color: #ebebeb">
                     <div class="card-body p-4">
-                        <img src="{{location_info.country_flag}}"/>
                         <h4 class="mb-1 sfw-normal">{{city_info.city}}</h4>
                         <img src="http://openweathermap.org/img/w/{{city_info.icon}}.png"/>
                         <p><strong>{{city_info.description}}</strong></p>
